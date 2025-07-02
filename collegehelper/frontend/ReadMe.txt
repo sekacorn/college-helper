@@ -63,7 +63,7 @@ Edit
 
 ```bash
 Edit
-git clone https://github.com/sekacorn/college-helper-frontend.git
+git clone https://github.com/sekacorn/college-helper.git
 cd college-helper-frontend
 2. Install dependencies
 
