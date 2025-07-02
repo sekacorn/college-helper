@@ -1,0 +1,13 @@
+<div class="container mt-5" style="max-width:400px">
+  <app-theme-switcher></app-theme-switcher>
+  <div class="card p-4">
+    <h3 class="mb-3">Login</h3>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+    <input class="form-control mb-2" placeholder="Username" [(ngModel)]="username">
+    <input class="form-control mb-2" type="password" placeholder="Password" [(ngModel)]="password">
+    <button class="btn btn-primary w-100" (click)="login()">Login</button>
+    <div class="text-center mt-3">
+      <a routerLink="/register">Create Account</a>
+    </div>
+  </div>
+</div>

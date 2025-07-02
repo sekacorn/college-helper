@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <app-theme-switcher></app-theme-switcher>
+  <div class="card p-4">
+    <h3>Grade Needed Calculator</h3>
+    <div class="mb-2">
+      <label>Current Score:
+        <input class="form-control" type="number" [(ngModel)]="currentScore">
+      </label>
+    </div>
+    <div class="mb-2">
+      <label>Target Score:
+        <input class="form-control" type="number" [(ngModel)]="targetScore">
+      </label>
+    </div>
+    <div class="mb-2">
+      <label>Total Possible Points:
+        <input class="form-control" type="number" [(ngModel)]="totalPossible">
+      </label>
+    </div>
+    <div class="mb-2">
+      <label>Final Exam Points:
+        <input class="form-control" type="number" [(ngModel)]="finalWeight">
+      </label>
+    </div>
+    <button class="btn btn-primary mb-2" (click)="calculate()">Calculate</button>
+    <div *ngIf="needed !== null" class="alert alert-info mt-2">
+      You need <strong>{{ needed | number:'1.2-2' }}</strong> on your final exam to pass!
+    </div>
+  </div>
+</div>

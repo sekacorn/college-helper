@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <app-theme-switcher></app-theme-switcher>
+  <div class="card p-4">
+    <h3>Semester Cost Calculator</h3>
+    <div class="mb-2">
+      <label>Tuition:
+        <input class="form-control" type="number" [(ngModel)]="tuition">
+      </label>
+    </div>
+    <div class="mb-2">
+      <label>Living:
+        <input class="form-control" type="number" [(ngModel)]="living">
+      </label>
+    </div>
+    <div class="mb-2">
+      <label>Books:
+        <input class="form-control" type="number" [(ngModel)]="books">
+      </label>
+    </div>
+    <div class="mb-2">
+      <label>Scholarships:
+        <input class="form-control" type="number" [(ngModel)]="scholarships">
+      </label>
+    </div>
+    <button class="btn btn-primary mb-2" (click)="calculate()">Calculate</button>
+    <div *ngIf="total !== null" class="alert alert-info mt-2">
+      Estimated out-of-pocket: <strong>\${{ total | number:'1.2-2' }}</strong>
+    </div>
+  </div>
+</div>

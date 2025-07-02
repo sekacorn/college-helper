@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <app-theme-switcher></app-theme-switcher>
+  <div class="card p-4">
+    <h3>Budget Calculator</h3>
+    <div *ngFor="let e of entries; let i = index" class="row mb-2">
+      <div class="col">
+        <input class="form-control" placeholder="Category" [(ngModel)]="e.category">
+      </div>
+      <div class="col">
+        <input class="form-control" type="number" placeholder="Amount" [(ngModel)]="e.amount">
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-danger" (click)="removeEntry(i)" *ngIf="entries.length>1">&times;</button>
+      </div>
+    </div>
+    <button class="btn btn-outline-primary" (click)="addEntry()">Add Entry</button>
+    <button class="btn btn-success ms-2" (click)="downloadExcel()">Download Excel</button>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="d-flex mb-3 align-items-center">
+  <label class="me-2 fw-bold">Theme:</label>
+  <select (change)="switchTheme($event.target.value)" class="form-select w-auto">
+    <option *ngFor="let theme of themes" [value]="theme.file">{{ theme.name }}</option>
+  </select>
+</div>

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Script to build and run the Spring Boot CollegeHelper app using Maven
+# Place this in your backend directory or root (adjust path to pom.xml as needed)
+
+# Check for pom.xml in current or backend directory
+if [ -f "pom.xml" ]; then
+  PROJECT_DIR=$(pwd)
+elif [ -f "backend/pom.xml" ]; then
+  cd backend
+  PROJECT_DIR=$(pwd)
+else
+  echo "Could not find pom.xml! Please run from the project root or backend directory."
+  exit 1
+fi
+
+echo "-----------------------------------------"
+echo " Maven Build (clean package)             "
+echo "-----------------------------------------"
+mvn clean package -DskipTests
+if [ $? -ne 0 ]; then
+  echo "Maven build failed!"
+  exit 2
+fi
+
+# Find the JAR (support for Spring Boot's repackage default)
+JAR_FILE=$(ls target/*.jar | grep -v 'original' | head -n 1)
+
+if [ ! -f "$JAR_FILE" ]; then
+  echo "Could not find Spring Boot jar in target/ after build!"
+  exit 3
+fi
+
+echo
+echo "-----------------------------------------"
+echo " Running $JAR_FILE"
+echo "-----------------------------------------"
+java -jar "$JAR_FILE"
