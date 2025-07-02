@@ -78,7 +78,7 @@ src/main/java/com/collegehelper/
 ### 2. Clone the repo
 
 ```bash
-git clone https://github.com/sekacorn/college-helper-backend.git
+git clone https://github.com/sekacorn/college-helper.git
 cd college-helper-backend
 3. Configure the database (optional for dev)
 Default uses in-memory H2 DB (see src/main/resources/application.properties)
